@@ -97,7 +97,6 @@ module Stupidedi
                     failure("element separator and segment terminator must be distinct", dR.input)
                   else
                     separators.segment = char_
-
                     token = SegmentTok.build(:ISA, elements,
                       rest.input.position, dR.input.position)
 

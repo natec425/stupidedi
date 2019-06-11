@@ -46,19 +46,19 @@ b. GS("HC", "SENDER ID", "RECEIVER ID",
 b. ST("837", stack.st, "005010X223A2")
 b.BHT("0019", "00", "X"*30, "19990531", Time.now.utc, "CH")
 
-  # 1000A SUBMITTER NAME
+#   # 1000A SUBMITTER NAME
   b.NM1("41", "1", "SUBMITTER NAME", "", "", "", "", "46", "12EEER000TY")
   b.PER(b.default, b.blank, "TE", "7607067425")
 
-  # 1000B RECEIVER NAME
+#   # 1000B RECEIVER NAME
   b.NM1("40", "2", "RECEIVER NAME", "", "", "", "", "46", "IDENTIFICATION")
 
-# LOOP 2000A BILLING PROVIDER (@todo: required)
-#
-# Generate a unique value to use in HL01 and children HL02 with `stack.hl`. Note
-# you must have previously called `stack.st`.
+# # LOOP 2000A BILLING PROVIDER (@todo: required)
+# #
+# # Generate a unique value to use in HL01 and children HL02 with `stack.hl`. Note
+# # you must have previously called `stack.st`.
 b. HL(stack.hl, b.not_used, "20", b.default)
-  # LOOP 2010AA
+#   # LOOP 2010AA
   b.NM1("85", b.default, "BILLING PROVIDER")
   b. N3("123 SESAME STREET")
   b. N4("NEW YORK CITY")
@@ -117,11 +117,11 @@ b. GE(stack.count, stack.pop_gs)
 b.IEA(stack.count, stack.pop_isa)
 
 # Pretty print the parse tree
-b.zipper.tap {|z| pp z.root.node; puts }
+# b.zipper.tap {|z| pp z.root.node; puts }
 
 # Print X12-formatted text
 b.machine.zipper.tap do |z|
-  separators = Stupidedi::Reader::Separators.build \
+  separators = Stupidedi::Reader::Separators.default.copy \
     :segment    => "~\n",
     :element    => "*"
     # @note: We can override values provided to ISA11 and ISA16 here

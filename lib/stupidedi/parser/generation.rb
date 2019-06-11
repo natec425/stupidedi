@@ -1,3 +1,5 @@
+require "pry"
+
 # frozen_string_literal: true
 module Stupidedi
   using Refinements
@@ -94,6 +96,7 @@ module Stupidedi
           value = value.up
           state = state.up
         end
+
 
         if op.push.nil?
           # This instruction doesn't create a child node in the parse tree,

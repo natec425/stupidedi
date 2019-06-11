@@ -454,7 +454,6 @@ module Stupidedi
 
           state
         end
-
         Either.success(StateMachine.new(@config, active))
       end
 

@@ -67,7 +67,6 @@ module Stupidedi
           element_idx  = "00"
           elements.each do |e_tag, e_val, e_position|
             element_idx = element_idx.succ
-
             # If the element is a regular Ruby value "ABC", the way this
             # proc's arguments are assigned would be e_tag = "ABC", and
             # e_val and e_position are nil. If the argument is a placeholder

@@ -23,6 +23,7 @@ module Stupidedi
       attr_accessor :segment    # ~
 
       def initialize(component, repetition, element, segment)
+        require "pry"; binding.pry
         @component, @repetition, @element, @segment =
           component, repetition, element, segment
       end
